@@ -3,13 +3,15 @@ import { createBrowserRouter, RouterProvider } from 'react-router'
 import AuthLayout from '../layouts/AuthLayout'
 import LoginPage from '../pages/LoginPage'
 import RegisterPage from '../pages/RegisterPage'
-import MainLayout from '../layouts/MAinLayout'
+import MainLayout from '../layouts/MainLayout'
 import HomePage from '../pages/HomePage'
 import PublicProtected from './protected/PublicProtected'
 import MainProtected from './protected/MainProtected'
 import { toast } from 'react-toastify'
 import { useDispatch } from 'react-redux'
 import { addUser } from '../features/authSlice'
+import { AboutPage } from '../pages/AboutPage'
+import ShopPage from '../pages/ShopPage'
 
 const AppRoute = () => {
   let dispatch = useDispatch();
@@ -56,7 +58,16 @@ const AppRoute = () => {
         {
           path:"",
           element:<HomePage/>
+        },
+        {
+          path:"about",
+          element:<AboutPage/>
+        },
+        {
+          path:"shop",
+          element:<ShopPage/>
         }
+
       ]
       }]
     }
