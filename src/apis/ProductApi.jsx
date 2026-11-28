@@ -1,17 +1,15 @@
 import { axiosInstance } from "../config/axiosinstance";
-export let getProductApi = async(page)=>
+export let getProductApi = async(limit,pageParams)=>
 {
   try {
-    let limit = 10
-    let skip = page*limit
-    let res = await axiosInstance.get(`/products?limit=${limit}&skip=${skip}`)
-    console.log(res.data.products);
-    console.log("api called for pagination");
+    console.log(pageParams);
+    let res = await axiosInstance.get(`/products?limit=${limit}&skip=${pageParams}`)
+    // console.log(res.data.products);
+    // console.log("api called for pagination");
     
-    return {
-      products:res.data.products,
-      total:res.data.total
-    }
+    return res.data
+      // total:res.data.total
+    
   } catch (error) {
     console.log("Error in fetching Api",error);
     throw error;   
