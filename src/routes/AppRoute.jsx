@@ -12,6 +12,7 @@ import { useDispatch } from 'react-redux'
 import { addUser } from '../features/authSlice'
 import { AboutPage } from '../pages/AboutPage'
 import ShopPage from '../pages/ShopPage'
+import ProductDetailCard from '../components/productDetailCard'
 
 const AppRoute = () => {
   let dispatch = useDispatch();
@@ -66,6 +67,10 @@ const AppRoute = () => {
         {
           path:"shop",
           element:<ShopPage/>
+        },
+        {
+          path:"product/:id",
+          element:<ProductDetailCard/>
         }
 
       ]

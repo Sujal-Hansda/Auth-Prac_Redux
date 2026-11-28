@@ -1,10 +1,13 @@
 
 import React from "react";
 import { ShoppingCart, Star } from "lucide-react";
+import { useAuth } from "../hooks/AuthHooks";
+
 
 const ProductCard = ({ product }) => {
+  let {navigate} = useAuth();
   return (
-    <div className="cursor-pointer w-full max-w-sm bg-[#18181b] rounded-2xl overflow-hidden border border-white/10 hover:border-lime-400/50 hover:shadow-xl hover:shadow-lime-400/5 transition duration-300">
+    <div onClick={()=>{navigate(`/main/product/${product.id}`)}} className="cursor-pointer w-full max-w-sm bg-[#18181b] rounded-2xl overflow-hidden border border-white/10 hover:border-lime-400/50 hover:shadow-xl hover:shadow-lime-400/5 transition duration-300">
 
       {/* Product Image */}
       <div className="relative bg-[#222225] h-56 flex items-center justify-center">
